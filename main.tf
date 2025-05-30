@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "recipe_media_bucket" {
     }
 }
 
-# Block all public access (FREE)
+# Block all public access
 resource "aws_s3_bucket_public_access_block" "recipe_media_bucket" {
     bucket = aws_s3_bucket.recipe_media_bucket.id
 
@@ -32,7 +32,7 @@ resource "aws_s3_bucket_public_access_block" "recipe_media_bucket" {
     restrict_public_buckets = true
 }
 
-# Enable server-side encryption (FREE)
+# Enable server-side encryption
 resource "aws_s3_bucket_server_side_encryption_configuration" "recipe_media_bucket" {
     bucket = aws_s3_bucket.recipe_media_bucket.id
 
