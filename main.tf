@@ -42,3 +42,14 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "recipe_media_buck
         }
     }
 }
+
+resource "aws_s3_bucket_cors_configuration" "recipe_media_bucket" {
+    bucket = aws_s3_bucket.recipe_media_bucket.id
+
+    cors_rule {
+        allowed_headers = ["*"]
+        allowed_methods = ["GET"]
+        allowed_origins = var.allowed_origins
+        max_age_seconds = 3000
+    }
+}
